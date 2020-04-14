@@ -8,7 +8,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping ("/")
 public class VehicleController {
     @GetMapping("/vehicle")
-    public list <vehicle> getAllVehicles() {
+    public List<vehicle> getAllVehicles() {
         return userRepository.findAll();
+    }
+
+@GetMapping("/vehicle/{id}")
+    public ResponseEntity<vehicle> getVehiclesById(@PathVariable(value = "id") Long vehicleId)
+        throws ResourceNotFoundException {
+        Vehicle vehicle =
+                vehicleRepository
+                        .findById(vehicleId)
+                        .orElseThrow(() -> new ResourceNotFoundException("User not found on :: " + vehicleId));
+        return ResponseEntity.ok().body(vehicle);
     }
 }
