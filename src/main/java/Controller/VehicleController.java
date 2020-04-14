@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping ("/")
 public class VehicleController {
     @GetMapping("/vehicle")
-    public list <vehicle> getAllVehicles() {
+    public List<vehicle> getAllVehicles() {
         return userRepository.findAll();
     }
 }
