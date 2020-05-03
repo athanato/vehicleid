@@ -20,7 +20,7 @@ public class VehicleService {
         return vehicleRepository.findAll();
     }
 
-    public Vehicle findById(String id){
+    public Vehicle findById(Long id){
         return vehicleRepository
                 .findById(id)
                 .orElseThrow(EntityNotFoundException:: new);
@@ -30,7 +30,7 @@ public class VehicleService {
         return vehicleRepository.save(vehicle);
     }
 
-        public void deleteVehicleById(String id) {
+        public void deleteVehicleById(Long id) {
                 vehicleRepository.deleteById(id);
     }
 }
