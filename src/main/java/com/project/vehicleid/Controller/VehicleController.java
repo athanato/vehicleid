@@ -41,7 +41,7 @@ public class VehicleController {
     }
 
     @GetMapping("/vehicles/{id}")
-    public ResponseEntity<Vehicle> getTutorialById(@PathVariable("id") long id) {
+    public ResponseEntity<Vehicle> getVehicleById(@PathVariable("id") long id) {
         Optional<Vehicle> tutorialData = vehicleRepository.findById(id);
 
         if (tutorialData.isPresent()) {
@@ -52,7 +52,7 @@ public class VehicleController {
     }
 
     @PostMapping("/vehicles")
-    public ResponseEntity<Vehicle> createTutorial(@RequestBody Vehicle vehicle) {
+    public ResponseEntity<Vehicle> createVehicle(@RequestBody Vehicle vehicle) {
         try {
             Vehicle _vehicle = vehicleRepository
                     .save(new Vehicle(vehicle.getModel(), vehicle.getDescription(), false));
